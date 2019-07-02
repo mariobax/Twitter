@@ -9,8 +9,8 @@
 #import "APIManager.h"
 
 static NSString * const baseURLString = @"https://api.twitter.com";
-static NSString * const consumerKey = // Enter your consumer key here
-static NSString * const consumerSecret = // Enter your consumer secret here
+static NSString * const consumerKey = @"5lUJuO5AUpPUCez4ewYDFrtgh";
+static NSString * const consumerSecret = @"s5ynGqXzstUZwFPxVyMDkYh197qvHOcVM3kwv1o2TKhS1avCdS";
 
 @interface APIManager()
 
@@ -18,6 +18,8 @@ static NSString * const consumerSecret = // Enter your consumer secret here
 
 @implementation APIManager
 
+
+// Creates a singleton. dispatch_once will only ever be called once.
 + (instancetype)shared {
     static APIManager *sharedManager = nil;
     static dispatch_once_t onceToken;
