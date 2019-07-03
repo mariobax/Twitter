@@ -12,6 +12,11 @@
 @implementation TweetCell
 
 - (void)initWithTweet:(Tweet*)tweet {
+    
+    // Store constraints
+//    self.retweetImageConstraints = self.retweetedImage.constraints;
+//    self.retweetLabelConstraints = self.retweetedMessageLabel.constraints;
+    
     self.postLabel.text = tweet.text;
     
     NSURL *profilePictureURL = [NSURL URLWithString:tweet.user.profilePictureURLString];
@@ -31,6 +36,21 @@
         self.favoriteButton.imageView.image = [UIImage imageNamed:@"favor-icon-red"];
     } else {
         self.favoriteButton.imageView.image = [UIImage imageNamed:@"favor-icon"];
+    }
+    NSLog(@"%d", tweet.retweeted);
+    
+    // Check if tweet is a retweet
+    if (tweet.isRetweet) {
+        self.retweetedMessageLabel.text = [tweet.retweetedByUser.name stringByAppendingString:@" Retweeted"];
+//        [self.retweetedImage addConstraints:self.retweetImageConstraints];
+//        [self.retweetedMessageLabel addConstraints:self.retweetLabelConstraints];
+        self.retweetedImage.hidden = NO;
+        self.retweetedMessageLabel.hidden = NO;
+    } else {
+//        [self.retweetedImage removeConstraints:[self.retweetedImage constraints]];
+//        [self.retweetedMessageLabel removeConstraints:[self.retweetedMessageLabel constraints]];
+        self.retweetedImage.hidden = YES;
+        self.retweetedMessageLabel.hidden = YES;
     }
 }
 

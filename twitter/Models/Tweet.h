@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int retweetCount; // Update favorite count label
 @property (nonatomic) BOOL retweeted; // Configure retweet button
 @property (strong, nonatomic) User *user; // Contains name, screenname, etc. of tweet author
+@property (nonatomic) BOOL isRetweet;
 @property (strong, nonatomic) NSString *createdAtString; // Display date
 
 // For Retweets

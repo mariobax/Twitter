@@ -30,9 +30,11 @@
         if(originalTweet != nil){
             NSDictionary *userDictionary = dictionary[@"user"];
             self.retweetedByUser = [[User alloc] initWithDictionary:userDictionary];
-            
+            self.isRetweet = YES;
             // Change tweet to original tweet
             dictionary = originalTweet;
+        } else {
+            self.isRetweet = NO;
         }
         self.idStr = dictionary[@"id_str"];
         self.text = dictionary[@"text"];
