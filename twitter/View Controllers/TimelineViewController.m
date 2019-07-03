@@ -28,10 +28,12 @@
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-            for (NSDictionary *dictionary in tweets) {
-                NSString *text = dictionary[@"text"];
+            for (Tweet *tweet in tweets) {
+                NSString *text = tweet.text;
                 NSLog(@"%@", text);
             }
+            self.tweets = tweets;
+            [self.tableView reloadData];
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
@@ -56,11 +58,14 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     TweetCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
+    Tweet *tweet = self.tweets[indexPath.row];
+    NSLog(@"%@", tweet.text);
+    [cell initWithTweet:tweet];
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.tweets.count;
 }
 
 @end

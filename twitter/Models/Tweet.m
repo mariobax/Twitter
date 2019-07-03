@@ -45,6 +45,7 @@
         NSDictionary *user = dictionary[@"user"];
         self.user = [[User alloc] initWithDictionary:user];
         
+        
         // Format createdAt date string from “Wed Aug 27 13:08:45 +0000 2008” to “5/08/17”
         NSString *createdAtOriginalString = dictionary[@"created_at"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

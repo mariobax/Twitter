@@ -16,6 +16,9 @@
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
         // Initialize any other properties
+        self.profilePictureURLString = dictionary[@"profile_image_url_https"];
+        self.name = dictionary[@"name"];
+        self.screenName = dictionary[@"screen_name"];
     }
     return self;
 }
