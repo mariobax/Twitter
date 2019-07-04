@@ -53,6 +53,21 @@
         self.retweetedMessageLabel.hidden = YES;
     }
 }
+- (IBAction)didFavorite:(id)sender {
+    if (!self.hasFavorited) {
+        //self.favoriteButton.imageView.image = [UIImage imageNamed:@"favor-icon-red"];
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
+        int count = [self.favoriteCountLabel.text intValue];
+        count++;
+        self.favoriteCountLabel.text = [NSString stringWithFormat:@"%d", count];
+    } else {
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
+        int count = [self.favoriteCountLabel.text intValue];
+        count--;
+        self.favoriteCountLabel.text = [NSString stringWithFormat:@"%d", count];
+    }
+    self.hasFavorited = !self.hasFavorited;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

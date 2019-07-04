@@ -155,6 +155,9 @@
                                                         <constraint firstAttribute="height" constant="20" id="uXj-at-DIh"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="favor-icon"/>
+                                                    <connections>
+                                                        <action selector="didFavorite:" destination="MFi-Uq-xcy" eventType="touchUpInside" id="aoi-a6-fXd"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3,345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGc-uO-vJw">
                                                     <rect key="frame" x="231.5" y="142.5" width="31" height="13"/>
