@@ -23,7 +23,6 @@
     self.postLabel.text = self.tweet.text;
     
     NSURL *profilePictureURL = [NSURL URLWithString:self.tweet.user.profilePictureURLString];
-    NSLog(@"%@", self.tweet.user.profilePictureURLString);
     [self.profilePicture setImageWithURL:profilePictureURL];
     self.userLabel.text = self.tweet.user.name;
     self.usernameLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
@@ -40,7 +39,6 @@
     } else {
         self.favoriteButton.imageView.image = [UIImage imageNamed:@"favor-icon"];
     }
-    NSLog(@"%d", self.tweet.retweeted);
     
     // Check if tweet is a retweet
     if (self.tweet.isRetweet) {
@@ -101,7 +99,6 @@
             }
         }];
     } else {
-        NSLog(@"WHY IS YOU NOT WORKING BRUH?");
         [self.retweetButton setImage:[UIImage imageNamed:@"retweet-icon"] forState:UIControlStateNormal];
         self.tweet.retweetCount -= 1;
         // Call the API Manager to POST the update to Twitter
