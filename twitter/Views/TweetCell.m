@@ -17,31 +17,33 @@
 //    self.retweetImageConstraints = self.retweetedImage.constraints;
 //    self.retweetLabelConstraints = self.retweetedMessageLabel.constraints;
     
-    self.postLabel.text = tweet.text;
+    self.tweet = tweet;
     
-    NSURL *profilePictureURL = [NSURL URLWithString:tweet.user.profilePictureURLString];
-    NSLog(@"%@", tweet.user.profilePictureURLString);
+    self.postLabel.text = self.tweet.text;
+    
+    NSURL *profilePictureURL = [NSURL URLWithString:self.tweet.user.profilePictureURLString];
+    NSLog(@"%@", self.tweet.user.profilePictureURLString);
     [self.profilePicture setImageWithURL:profilePictureURL];
-    self.userLabel.text = tweet.user.name;
-    self.usernameLabel.text = [@"@" stringByAppendingString:tweet.user.screenName];
-    self.dateLabel.text = tweet.createdAtString;
-    self.retweetCountLabel.text = [@(tweet.retweetCount) stringValue];
-    if (tweet.retweeted) {
+    self.userLabel.text = self.tweet.user.name;
+    self.usernameLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
+    self.dateLabel.text = self.tweet.createdAtString;
+    self.retweetCountLabel.text = [@(self.tweet.retweetCount) stringValue];
+    if (self.tweet.retweeted) {
         self.retweetButton.imageView.image = [UIImage imageNamed:@"retweet-icon-green"];
     } else {
         self.retweetButton.imageView.image = [UIImage imageNamed:@"retweet-icon"];
     }
-    self.favoriteCountLabel.text = [@(tweet.favoriteCount) stringValue];
-    if (tweet.favorited) {
+    self.favoriteCountLabel.text = [@(self.tweet.favoriteCount) stringValue];
+    if (self.tweet.favorited) {
         self.favoriteButton.imageView.image = [UIImage imageNamed:@"favor-icon-red"];
     } else {
         self.favoriteButton.imageView.image = [UIImage imageNamed:@"favor-icon"];
     }
-    NSLog(@"%d", tweet.retweeted);
+    NSLog(@"%d", self.tweet.retweeted);
     
     // Check if tweet is a retweet
-    if (tweet.isRetweet) {
-        self.retweetedMessageLabel.text = [tweet.retweetedByUser.name stringByAppendingString:@" Retweeted"];
+    if (self.tweet.isRetweet) {
+        self.retweetedMessageLabel.text = [self.tweet.retweetedByUser.name stringByAppendingString:@" Retweeted"];
 //        [self.retweetedImage addConstraints:self.retweetImageConstraints];
 //        [self.retweetedMessageLabel addConstraints:self.retweetLabelConstraints];
         self.retweetedImage.hidden = NO;
@@ -54,19 +56,15 @@
     }
 }
 - (IBAction)didFavorite:(id)sender {
-    if (!self.hasFavorited) {
-        //self.favoriteButton.imageView.image = [UIImage imageNamed:@"favor-icon-red"];
+    if (!self.tweet.favorited) {
         [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
-        int count = [self.favoriteCountLabel.text intValue];
-        count++;
-        self.favoriteCountLabel.text = [NSString stringWithFormat:@"%d", count];
+        self.tweet.favoriteCount += 1;
     } else {
         [self.favoriteButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
-        int count = [self.favoriteCountLabel.text intValue];
-        count--;
-        self.favoriteCountLabel.text = [NSString stringWithFormat:@"%d", count];
+        self.tweet.favoriteCount -= 1;
     }
-    self.hasFavorited = !self.hasFavorited;
+    self.favoriteCountLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    self.tweet.favorited = !self.tweet.favorited;
 }
 
 - (void)awakeFromNib {

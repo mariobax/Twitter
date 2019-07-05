@@ -29,7 +29,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) Tweet *tweet;
 @property (strong, nonatomic) NSArray *retweetImageConstraints;
 @property (strong, nonatomic) NSArray *retweetLabelConstraints;
-@property (nonatomic) BOOL hasFavorited;
 
 - (void)initWithTweet:(Tweet*)tweet;
 
