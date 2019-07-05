@@ -273,15 +273,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9CE-tx-nHU">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9CE-tx-nHU">
                                 <rect key="frame" x="0.0" y="64" width="375" height="181"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.932176975388601" green="0.932176975388601" blue="0.932176975388601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Place tweet here..."/>
+                                </userDefinedRuntimeAttributes>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9CE-tx-nHU" firstAttribute="leading" secondItem="9gv-hH-LlZ" secondAttribute="leading" id="5Yz-2w-i5e"/>
+                            <constraint firstItem="9gv-hH-LlZ" firstAttribute="bottom" secondItem="9CE-tx-nHU" secondAttribute="bottom" constant="422" id="74c-o5-uNl"/>
+                            <constraint firstItem="9CE-tx-nHU" firstAttribute="top" secondItem="9gv-hH-LlZ" secondAttribute="top" id="943-tX-PtN"/>
+                            <constraint firstItem="9CE-tx-nHU" firstAttribute="trailing" secondItem="9gv-hH-LlZ" secondAttribute="trailing" id="tKi-FX-Ajz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9gv-hH-LlZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bc6-3E-lUs">
