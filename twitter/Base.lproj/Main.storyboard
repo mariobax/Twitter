@@ -246,7 +246,11 @@
                         <viewLayoutGuide key="safeArea" id="ugE-Ul-H9I"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="lao-r9-AN5"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="lao-r9-AN5">
+                            <connections>
+                                <action selector="didTapLogout:" destination="Lbl-k5-U4i" id="hv8-Cj-NcD"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="edit-icon" id="CM8-Nt-UhF">
                             <connections>
                                 <segue destination="j5v-fR-Yko" kind="presentation" id="Gax-Jo-ey8"/>
