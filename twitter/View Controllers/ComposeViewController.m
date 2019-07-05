@@ -10,8 +10,9 @@
 #import "APIManager.h"
 #import <UITextView+Placeholder/UITextView+Placeholder.h>
 
-@interface ComposeViewController ()
+@interface ComposeViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
 
 @end
 
@@ -19,7 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.    
+    // Do any additional setup after loading the view.
+    self.textView.delegate = self;
 }
 - (IBAction)closedPressed:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
@@ -36,6 +38,11 @@
         }
         [self dismissViewControllerAnimated:true completion:nil];
     }];
+}
+
+- (void) textViewDidChange:(UITextView *)textView {
+    int numberOfCharsLeft = 140 - (int)textView.text.length;
+    self.countdownLabel.text = [@(numberOfCharsLeft) stringValue];
 }
 
 /*

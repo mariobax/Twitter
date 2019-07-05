@@ -282,12 +282,20 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Place tweet here..."/>
                                 </userDefinedRuntimeAttributes>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hK5-GM-XSy">
+                                <rect key="frame" x="342" y="224" width="33" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9CE-tx-nHU" firstAttribute="leading" secondItem="9gv-hH-LlZ" secondAttribute="leading" id="5Yz-2w-i5e"/>
                             <constraint firstItem="9gv-hH-LlZ" firstAttribute="bottom" secondItem="9CE-tx-nHU" secondAttribute="bottom" constant="422" id="74c-o5-uNl"/>
                             <constraint firstItem="9CE-tx-nHU" firstAttribute="top" secondItem="9gv-hH-LlZ" secondAttribute="top" id="943-tX-PtN"/>
+                            <constraint firstItem="hK5-GM-XSy" firstAttribute="bottom" secondItem="9CE-tx-nHU" secondAttribute="bottom" id="BSr-Fk-sNb"/>
+                            <constraint firstItem="hK5-GM-XSy" firstAttribute="trailing" secondItem="9CE-tx-nHU" secondAttribute="trailing" id="CRr-Vl-ph2"/>
                             <constraint firstItem="9CE-tx-nHU" firstAttribute="trailing" secondItem="9gv-hH-LlZ" secondAttribute="trailing" id="tKi-FX-Ajz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9gv-hH-LlZ"/>
@@ -305,6 +313,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="countdownLabel" destination="hK5-GM-XSy" id="cQ3-aY-cER"/>
                         <outlet property="textView" destination="9CE-tx-nHU" id="Fva-iH-5Iv"/>
                     </connections>
                 </viewController>
